@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="society_detail_action" model="ir.actions.act_window">
+        <field name="name">Societies</field>
+        <field name="res_model">society.detail</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+     <record id="society_detail_tree" model="ir.ui.view">
+        <field name="name">society.detail.tree</field>
+        <field name="model">society.detail</field>
+        <field name="arch" type="xml">
+            <tree string="Channel">
+                <field name="name"/>
+                <field name="block_count" string="Blocks"/>
+                <field name="room_count" string="Rooms"/>
+            </tree>
+        </field>
+    </record>
+    <record id="society_detail_form" model="ir.ui.view">
+        <field name="name">society.detail.form</field>
+        <field name="model">society.detail</field>
+        <field name="arch" type="xml">
+            <form string="Details">
+            <sheet>
+                <label for="name" string="Society Name"/>
+                <div class="oe_title">
+                    <h1 class="mb32">
+                        <field name="name" class="mb16"/>
+                    </h1>
+                </div>
+            <group>    
+            <group>
+            <field name="block_count" string="No. of Blocks"/>
+            <field name="room_count" string="No . of rooms"/>
+            </group>
+            </group>
+            <notebook>
+                 <page string="Details">
+                <group>
+                <group>
+                    <field name="location"/>
+                    <field name="garden"/>
+                </group>
+                </group>
+                </page>
+                <page string="Rules and regulation">
+                <!-- <tree> -->
+                <label for="rules" string="Rules"/>
+                <field name="rules"/>
+                <!-- </tree> -->
+                </page>
+            </notebook>
+            </sheet>
+            </form>
+        </field>
+        </record>
+        
+</odoo>

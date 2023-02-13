@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<odoo>
+    <menuitem id="society_root_menu" name="Society">
+        <menuitem id="society_first_level_menu" name="Details">
+            <menuitem id="society_detail_menu" action="society_detail_action"/>
+            <menuitem id="society_resident_menu" action="society_resident_action"/>
+        </menuitem>
+    </menuitem>   
+</odoo>

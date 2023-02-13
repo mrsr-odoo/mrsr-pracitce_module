@@ -1,0 +1,1 @@
+from . import society_detail, society_resident
