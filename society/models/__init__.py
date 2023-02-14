@@ -1,1 +1,1 @@
-from . import society_detail, society_resident
+from . import society_detail, society_resident, society_block,society_event

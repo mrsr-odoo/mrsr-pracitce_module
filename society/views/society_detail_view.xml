@@ -28,17 +28,19 @@
                         <field name="name" class="mb16"/>
                     </h1>
                 </div>
-            <group>    
+            <!-- <group>    
             <group>
-            <field name="block_count" string="No. of Blocks"/>
-            <field name="room_count" string="No . of rooms"/>
+            
             </group>
-            </group>
+            </group> -->
             <notebook>
                  <page string="Details">
                 <group>
                 <group>
+                    <field name="block_count" string="No. of Blocks"/>
+                    <field name="room_count" string="No . of rooms"/>
                     <field name="location"/>
+                    <field name="temple"/>
                     <field name="garden"/>
                 </group>
                 </group>

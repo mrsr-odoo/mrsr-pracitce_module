@@ -28,24 +28,24 @@
                         <field name="name" class="mb16"/>
                     </h1>
                 </div> -->
-            <group>    
+            <group >    
             <group>
             <field name="room_no"/> 
             <field name="owner"/>
-            
-            </group>
+            <field name="contact_no"/>
+            <!-- </group>
             </group>
             <notebook>
                  <page string="Details">
                  <group>
-                 <group>
+                 <group> -->
                     <field name="block" string="Block Number"/>
                     <field name="society_name" string="Society Name"/>
                     <field name="members" string="No of members"/>
                 </group>
                 </group>
-                </page>
-            </notebook>
+                <!-- </page> -->
+            <!-- </notebook> -->
             </sheet> 
             </form>
         </field>
