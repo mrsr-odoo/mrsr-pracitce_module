@@ -1,15 +1,22 @@
 <?xml version="1.0"?>
 <odoo>
     <menuitem id="society_root_menu" name="Society">
+     <!-- web_icon="society,static/description/soc_icon.png"> -->
         <menuitem id="society_first_level_menu" name="Details">
             <menuitem id="society_detail_menu" action="society_detail_action"/>
             <menuitem id="society_resident_menu" action="society_resident_action"/>
+            <menuitem id="society_staff_menu" action="society_staff_action"/>
         </menuitem>
         <menuitem id="society_second_level_menu" name="Setting">
             <menuitem id="society_block_menu" action="society_block_action"/>
+            <menuitem id="society_maintain_menu" action="society_maintain_action"/>
         </menuitem>
         <menuitem id="society_third_level_menu" name="Events">
             <menuitem id="society_event_menu" action="society_event_action"/>
         </menuitem>
+        <menuitem id="society_fourth_level_menu" name="Issue">
+            <menuitem id="society_help_menu" action="society_help_action"/>
+            <menuitem id="society_complaint_menu" action="society_complaint_action"/>
+        </menuitem>
     </menuitem>   
-</odoo>
+</odoo> 

@@ -5,5 +5,5 @@ class SocietyEvent(models.Model):
 
     name=fields.Char()
     subject=fields.Char()
-    date=fields.Date()
+    event_date=fields.Date()
     room_id=fields.Many2one("society.resident")

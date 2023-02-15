@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<odoo>
+ <record id="society_help_action" model="ir.actions.act_window">
+        <field name="name">Help</field>
+        <field name="res_model">society.help</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

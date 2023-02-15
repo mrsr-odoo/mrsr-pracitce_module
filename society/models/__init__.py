@@ -1,1 +1,3 @@
-from . import society_detail, society_resident, society_block,society_event
+from . import society_detail, society_resident
+from . import society_block,society_event,society_staff,society_complaint
+from . import society_help,society_maintain
