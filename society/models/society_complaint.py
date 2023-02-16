@@ -5,5 +5,5 @@ class SocietyComplaint(models.Model):
     _rec_name="subject"
 
     subject=fields.Char(required=True)
-    room=fields.Many2one("society.resident",required=True)
+    room_id=fields.Many2one("society.resident",required=True)
     description=fields.Text()

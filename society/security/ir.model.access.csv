@@ -7,3 +7,4 @@ society.access_society_staff,access_society_staff,society.model_society_staff,ba
 society.access_society_complaint,access_society_complaint,society.model_society_complaint,base.group_user,1,1,1,1
 society.access_society_help,access_society_help,society.model_society_help,base.group_user,1,1,1,1
 society.access_society_maintain,access_society_maintain,society.model_society_maintain,base.group_user,1,1,1,1
+society.access_society_resident_tag,access_society_resident_tag,society.model_society_resident_tag,base.group_user,1,1,1,1

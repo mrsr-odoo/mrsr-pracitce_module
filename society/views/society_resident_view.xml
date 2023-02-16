@@ -10,9 +10,11 @@
         <field name="model">society.resident</field>
         <field name="arch" type="xml">
             <tree string="Channel">
+                <field name="owner_id" string="Owner"/>
                 <field name="room_no"/>
-                <field name="owner" string="Blocks"/>
-                <field name="block" string="Rooms"/>
+                <field name="society_id"/>
+                
+                <field name="block_id" string="Block"/>
             </tree>
         </field>
     </record>
@@ -31,7 +33,8 @@
             <group >    
             <group>
             <field name="room_no"/> 
-            <field name="owner"/>
+            <field name="owner_id"/>
+            <field name="tag_id" string="Tags"/>
             <field name="contact_no"/>
             <!-- </group>
             </group>
