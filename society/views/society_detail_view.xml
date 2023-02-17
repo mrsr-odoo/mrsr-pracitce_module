@@ -27,7 +27,7 @@
                     <h1 class="mb32">
                         <field name="name" class="mb16"/>
                     </h1>
-                    <field name="tag_ids" widget="many2many_tags" string="Tags"/>
+                    <!-- <field name="tag_ids" widget="many2many_tags" string="Tags"/> -->
                 </div>
             <!-- <group>    
             <group>

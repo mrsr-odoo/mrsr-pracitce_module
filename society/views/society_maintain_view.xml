@@ -1,8 +1,42 @@
 <?xml version="1.0"?>
 <odoo>
- <record id="society_maintain_action" model="ir.actions.act_window">
+    <record id="society_maintain_action" model="ir.actions.act_window">
         <field name="name">Maintenance</field>
         <field name="res_model">society.maintain</field>
         <field name="view_mode">tree,form</field>
     </record>
+    <record id="society_maintain_tree" model="ir.ui.view">
+        <field name="name">society.maintain.tree</field>
+        <field name="model">society.maintain</field>
+        <field name="arch" type="xml">
+            <tree string="Channel">
+                <field name="room_id" string="Room no"/>
+                <field name="name"/>
+                <field name="date"/>
+                 <field name="status"/>
+            </tree>
+        </field>
+    </record>
+    <record id="society_maintain_form" model="ir.ui.view">
+        <field name="name">society.maintain.form</field>
+        <field name="model">society.maintain</field>
+        <field name="arch" type="xml">
+            <form string="Details">
+                <header>
+                <button name="paid_action" type="object" string="Paid"/>
+                    <field name="status" widget="statusbar" options="{'clickable':'1'}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="room_id" string="Room no"/>
+                        <field name="name"/>
+                        <field name="date"/>
+                        <field name="amount"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
 </odoo>

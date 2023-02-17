@@ -5,4 +5,23 @@
         <field name="res_model">society.staff</field>
         <field name="view_mode">tree,form</field>
     </record>
+    <record id="society_staff_form" model="ir.ui.view">
+        <field name="name">Society Staff</field>
+        <field name="model">society.staff</field>
+        <field name="arch" type="xml">
+        <form>
+         <sheet>
+                <label for="name" string="Name"/>
+                <div class="oe_title">
+                    <h1 class="mb32">
+                        <field name="name" class="mb16"/>
+                    </h1>
+                </div>
+                <group col="4">
+                <field name="mobile_no"/>
+                </group>
+          </sheet>      
+        </form>
+        </field>
+    </record>
 </odoo>

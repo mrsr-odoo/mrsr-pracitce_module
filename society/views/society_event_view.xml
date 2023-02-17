@@ -5,4 +5,37 @@
         <field name="res_model">society.event</field>
         <field name="view_mode">tree,form</field>
     </record>
+    <record id="society_event_tree" model="ir.ui.view">
+        <field name="name">society.event.tree</field>
+        <field name="model">society.event</field>
+        <field name="arch" type="xml">
+            <tree string="Channel">
+                <field name="subject"/>
+                <field name="organizer"/>
+                <field name="event_date"/>
+            </tree>
+        </field>
+    </record>
+    <record id="society_event_form" model="ir.ui.view">
+        <field name="name">society.event.form</field>
+        <field name="model">society.event</field>
+        <field name="arch" type="xml">
+            <form string="Event Details">
+                <header>
+                <button name="approve_action" type="object" string="Approve"/>
+                <button name="refuse_action" type="object" string="Refuse"/>
+                <button name="complete_button" type="object" string="Completed"/>
+                    <field name="event_status" widget="statusbar" options="{'clickable':'1'}"/>
+                </header>
+                <sheet>
+                    <group>
+                         <field name="room_id"/>
+                        <field name="organizer"/>
+                        <field name="subject"/>
+                        <field name="event_date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 </odoo>

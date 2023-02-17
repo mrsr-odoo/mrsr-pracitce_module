@@ -14,7 +14,7 @@
                 <field name="room_no"/>
                 <field name="society_id"/>
                 
-                <field name="block_id" string="Block"/>
+                <field name="block_no" string="Block"/>
             </tree>
         </field>
     </record>
@@ -24,17 +24,19 @@
         <field name="arch" type="xml">
             <form string="Details">
             <sheet>
-                <!-- <label for="name" string="Room"/>
+                <label for="owner_id" string="Owner"/>
                 <div class="oe_title">
                     <h1 class="mb32">
-                        <field name="name" class="mb16"/>
+                        <field name="owner_id" class="mb16"/>
                     </h1>
-                </div> -->
+                </div>
+                <notebook>
+                <page string="Details">
             <group >    
             <group>
             <field name="room_no"/> 
-            <field name="owner_id"/>
-            <field name="tag_id" string="Tags"/>
+            <!-- <field name="owner_id"/> -->
+            <field name="house_type"/>
             <field name="contact_no"/>
             <!-- </group>
             </group>
@@ -42,13 +44,13 @@
                  <page string="Details">
                  <group>
                  <group> -->
-                    <field name="block" string="Block Number"/>
-                    <field name="society_name" string="Society Name"/>
+                    <field name="block_no" string="Block Number"/>
+                    <field name="society_id" string="Society Name"/>
                     <field name="members" string="No of members"/>
                 </group>
                 </group>
-                <!-- </page> -->
-            <!-- </notebook> -->
+                </page>
+            </notebook>
             </sheet> 
             </form>
         </field>
