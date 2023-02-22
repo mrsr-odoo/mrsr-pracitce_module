@@ -8,15 +8,15 @@ class SocietyEvent(models.Model):
     subject=fields.Char(required=True)
     event_date=fields.Date()
     room_id=fields.Many2one("society.resident")
-    organizer=fields.Char(compute="_compute_organizer")
+    organizer=fields.Selection(related="room_id.block_no")
     event_status=fields.Selection(string="Request status",
-                    selection=[('refuse','Refused'),('approve','Approved'),('complete','Completed')])
+                    selection=[('new','New'),('approve','Approved'),('complete','Completed'),('refuse','Refused')])
 
     
-    @api.depends("room_id")
-    def _compute_organizer(self):
-        for record in self:
-            record.organizer=record.room_id.owner_id.name
+    # @api.depends("room_id")
+    # def _compute_organizer(self):
+    #     for record in self:
+    #         record.organizer=record.room_id.owner_id.name
 
     def approve_action(self):
         for rec in self:

@@ -23,16 +23,20 @@
         <field name="arch" type="xml">
             <form string="Details">
                 <header>
-                <button name="paid_action" type="object" string="Paid"/>
+                <button name="paid_action" type="object" string="Paid" class="oe_highlight"/>
                     <field name="status" widget="statusbar" options="{'clickable':'1'}"/>
                 </header>
                 <sheet>
+                <group>
                     <group>
                         <field name="room_id" string="Room no"/>
                         <field name="name"/>
+                    </group>
+                    <group>
                         <field name="date"/>
                         <field name="amount"/>
                     </group>
+                </group>
                 </sheet>
             </form>
         </field>

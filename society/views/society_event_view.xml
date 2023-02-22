@@ -22,10 +22,10 @@
         <field name="arch" type="xml">
             <form string="Event Details">
                 <header>
-                <button name="approve_action" type="object" string="Approve"/>
+                <button name="approve_action" type="object" string="Approve" class="oe_highlight" attrs="{'invisible':[('event_status','not in','new')]}"/>
                 <button name="refuse_action" type="object" string="Refuse"/>
                 <button name="complete_button" type="object" string="Completed"/>
-                    <field name="event_status" widget="statusbar" options="{'clickable':'1'}"/>
+                <field name="event_status" widget="statusbar" options="{'clickable':'1'}"/>
                 </header>
                 <sheet>
                     <group>
