@@ -8,9 +8,10 @@ class SocietyEvent(models.Model):
     subject=fields.Char(required=True)
     event_date=fields.Date()
     room_id=fields.Many2one("society.resident")
-    organizer=fields.Selection(related="room_id.block_no")
+    organizer=fields.Char(related="room_id.owner")
     event_status=fields.Selection(string="Request status",
-                    selection=[('new','New'),('approve','Approved'),('complete','Completed'),('refuse','Refused')])
+                    selection=[('new','New'),('request','Requested'),('approve','Approved'),('complete','Completed'),('refuse','Refused')],
+                    default="new")
 
     
     # @api.depends("room_id")

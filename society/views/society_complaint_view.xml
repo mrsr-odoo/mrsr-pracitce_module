@@ -1,8 +1,29 @@
 <?xml version="1.0"?>
 <odoo>
- <record id="society_complaint_action" model="ir.actions.act_window">
+    <record id="society_complaint_action" model="ir.actions.act_window">
         <field name="name">Complaints</field>
         <field name="res_model">society.complaint</field>
         <field name="view_mode">tree,form</field>
+    </record>
+    <record id="society_complaint_form" model="ir.ui.view">
+    <field name="name">society.complaint.form</field>
+    <field name="model">society.complaint</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+            <group>
+            <group>
+                <field name="subject"/>
+                <field name="room_id"/>
+                </group>
+            </group>
+                <group>
+
+                <field name="description"/>
+            </group>
+            </sheet>
+        
+        </form>
+    </field>
     </record>
 </odoo>

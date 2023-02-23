@@ -11,16 +11,16 @@ class SocietyMaintenance(models.Model):
     current_month=datetime.now().month
     date= fields.Date("Due Date",default=datetime.strptime('%s-%s-12' % (current_year,current_month),'%Y-%m-%d'))
     # date=fields.Date()
-    name=fields.Char(compute="_compute_name")
+    name=fields.Char(related="room_id.owner")
     amount=fields.Integer(default=1500,readonly=True)
     status=fields.Selection(string="Payment status",
                             selection=[("pending","Pending"),("paid","Paid")],
                             default="pending")
 
-    @api.depends("room_id.room_no")
-    def _compute_name(self):
-        for record in self:
-            record.name=record.room_id.owner_id.name
+    # @api.depends("room_id.room_no")
+    # def _compute_name(self):
+    #     for record in self:
+    #         record.name=record.room_id.owner_id.name
 
     def paid_action(self):
         for record in self:
