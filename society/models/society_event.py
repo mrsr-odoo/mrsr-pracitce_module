@@ -6,10 +6,10 @@ class SocietyEvent(models.Model):
     _rec_name="subject"
     # name=fields.Char()
     subject=fields.Char(required=True)
-    event_date=fields.Date()
-    room_id=fields.Many2one("society.resident")
+    event_date=fields.Date(default=lambda self:fields.Date.today())
+    room_id=fields.Many2one("society.resident",required=True)
     organizer=fields.Char(related="room_id.owner")
-    event_status=fields.Selection(string="Request status",
+    state=fields.Selection(string="Request status",
                     selection=[('new','New'),('request','Requested'),('approve','Approved'),('complete','Completed'),('refuse','Refused')],
                     default="new")
 
@@ -21,25 +21,26 @@ class SocietyEvent(models.Model):
 
     def approve_action(self):
         for rec in self:
-            if rec.event_status not in ('complete','refuse'):
-                rec.event_status="approve"
-            else:
-                raise UserError("You must plan another event")
+            if rec.state not in ('complete','refuse'):
+                rec.state="approve"
+    
         return True
     
     def refuse_action(self):
         for rec in self:
-            if rec.event_status not in ('complete','approve'):
-                rec.event_status="refuse"
-            else:
-                raise UserError("You cannot refuse ")
+            rec.state="refuse"
+            
+            # if rec.state not in ('complete','approve'):
+            #     rec.state="refuse"
+            # else:
+            #     raise UserError("You cannot refuse ")
         return True
     
     def complete_button(self):
         for rec in self:
-            if rec.event_status not in ('refuse'):
-                rec.event_status="complete"
-            else:
-                UserError("Event is completed")
-
+            rec.state="complete"
         return True
+
+    def request_action(self):
+        for rec in self:
+            rec.state="request"

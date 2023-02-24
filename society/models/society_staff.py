@@ -4,5 +4,6 @@ class SocietyStaff(models.Model):
     _description="Staff member of society"
 
     name=fields.Char(required=True)
+    sequence=fields.Integer(default=1)
     mobile_no=fields.Char()
     

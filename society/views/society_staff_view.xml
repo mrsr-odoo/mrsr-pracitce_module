@@ -24,4 +24,14 @@
         </form>
         </field>
     </record>
+      <record id="society_staff_tree" model="ir.ui.view">
+        <field name="name">society.staff.tree</field>
+        <field name="model">society.staff</field>
+        <field name="arch" type="xml">
+        <tree>
+            <field name="sequence" widget="handle"/>
+            <field name="name"/>
+            </tree>
+        </field>
+    </record>
 </odoo>

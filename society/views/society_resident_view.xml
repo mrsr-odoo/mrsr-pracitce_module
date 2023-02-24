@@ -9,12 +9,16 @@
         <field name="name">society.resident.tree</field>
         <field name="model">society.resident</field>
         <field name="arch" type="xml">
-            <tree string="Channel">
+            <tree string="Channel" decoration-warning="state=='abandoned'"
+                                   decoration-success="state=='register'"
+                                   decoration-bf="state=='register'"
+                                decoration-info="state=='new'" default_order="room_no">
                 <field name="owner" string="Owner"/>
                 <field name="room_no"/>
                 <field name="society_id"/>
                 
                 <field name="block_no" string="Block"/>
+                <field name="state" invisible="1" />   
             </tree>
         </field>
     </record>
@@ -25,13 +29,11 @@
             <form string="Details">
             <header>
                 <button type="object" name="register_action" string="Register" states="new" class="oe_highlight"/>
-                <button type="object" name="ab_action" string="Abandoned" states="register"/>
-                <button type="object" name="re_register_action" string="Re-register" states="abandoned" class="oe_highlight"/>
+                <button type="object" name="re_register_action" string="Re-register" states="register" class="oe_highlight"/>
                 <field name="state" widget="statusbar" options="{'clickable':'1'}"/>
             </header>
             <sheet>
              <widget name="web_ribbon" title="Registered" bg_color="bg-success" attrs="{'invisible':[('state','!=','register')]}"/>
-             <widget name="web_ribbon" title="Abandoned" bg_color="bg-warning" attrs="{'invisible':[('state','!=','abandoned')]}"/>
                 <label for="owner" string="Owner"/>
                 <div class="oe_title">
                     <h1 class="mb32">
@@ -40,21 +42,15 @@
                 </div>
                 <notebook>
                 <page string="Details">
-            <group attrs="{'readonly':[('state','=','abandoned')]}">    
+            <group>    
             <group >
-            <field name="society_id" string="Society Name" attrs="{'readonly':[('state','=','abandoned')]}"/>
-            <field name="room_no" attrs="{'readonly':[('state','=','abandoned')]}"/> 
+            <field name="society_id" string="Society Name"/>
+            <field name="room_no"/> 
             <!-- <field name="owner_id"/> -->
-            <field name="house_type" attrs="{'readonly':[('state','=','abandoned')]}"/>
-            <field name="contact_no" attrs="{'readonly':[('state','=','abandoned')]}"/>
-            <!-- </group>
-            </group>
-            <notebook>
-                 <page string="Details">
-                 <group>
-                 <group> -->
-                    <field name="block_no" string="Block Number" attrs="{'readonly':[('state','=','abandoned')]}"/>
-                    <field name="members" string="No of members" attrs="{'readonly':[('state','=','abandoned')]}"/>
+            <field name="house_type"/>
+            <field name="contact_no"/>
+            <field name="block_no" string="Block Number"/>
+            <field name="members" string="No of members"/>
                 </group>
                 </group>
                 </page>

@@ -3,6 +3,8 @@ class SocietyResident(models.Model):
     _name="society.resident"
     _description="Residential Society"
     _rec_name="room_no"
+    _sql_constraints=[
+        ("unique_rooms",'unique(room_no)',"Room no. must be unique")]
 
     room_no=fields.Char(required=True)
     owner=fields.Char(required=True)
@@ -17,7 +19,7 @@ class SocietyResident(models.Model):
         help="Select house type"
                                 )
     state=fields.Selection(string="house status",
-                           selection=[('new','New'),('register','Registered'),('abandoned','Abandoned')],
+                           selection=[('new','New'),('register','Registered')],
                            default="new")
     society_id=fields.Many2one('society.detail')
     members=fields.Char()
@@ -28,14 +30,7 @@ class SocietyResident(models.Model):
         for record in self:
             record.state="register"
         return True
-    def ab_action(self):
-        for record in self:
-            record.state="abandoned"
-            record.owner="NONE"
-            record.members="0"
-            record.contact_no=""
-
-        return True
+    
     def re_register_action(self):
         for record in self:
             record.state="new"

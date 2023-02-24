@@ -5,8 +5,9 @@ class SocietyDetail(models.Model):
     
     name=fields.Char(required=True)
     block_count=fields.Char()
-    room_count=fields.Char()
+    room_count=fields.Integer()
     location=fields.Char()
     garden=fields.Boolean()
     temple=fields.Boolean()
-    rules=fields.Text()
+    rule_ids=fields.One2many("society.rule","soc_id")
+    garden_area=fields.Integer(default=10)

@@ -4,15 +4,22 @@
         <field name="name">Society Events</field>
         <field name="res_model">society.event</field>
         <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_active':True}</field>
     </record>
     <record id="society_event_tree" model="ir.ui.view">
         <field name="name">society.event.tree</field>
         <field name="model">society.event</field>
         <field name="arch" type="xml">
-            <tree string="Channel">
+            <tree string="Channel" decoration-success="state=='approve'" 
+                                    decoration-info="state=='new'"
+                                    decoration-muted="state=='complete'"
+                                    decoration-danger="state=='refuse'"
+                                    decoration-bf="state in ['approve','refuse']">
                 <field name="subject"/>
                 <field name="organizer"/>
                 <field name="event_date"/>
+                <field name="state" invisible='1'/>
+        
             </tree>
         </field>
     </record>
@@ -22,10 +29,11 @@
         <field name="arch" type="xml">
             <form string="Event Details">
                 <header>
-                <button name="approve_action" type="object" string="Approve" class="oe_highlight" attrs="{'invisible':[('event_status','not in','new')]}"/>
-                <button name="refuse_action" type="object" string="Refuse"/>
-                <button name="complete_button" type="object" string="Completed"/>
-                <field name="event_status" widget="statusbar" options="{'clickable':'1'}"/>
+                <button name="request_action" type="object" string="request" states="new" class="oe_highlight"/>
+                <button name="approve_action" type="object" string="Approve" class="oe_highlight" states="request"/>
+                <button name="refuse_action" type="object" string="Refuse" states="request"/>
+                <button name="complete_button" type="object" string="Completed" states="approve"/>
+                <field name="state" widget="statusbar" options="{'clickable':'1'}"/>
                 </header>
                 <sheet>
                     <group>
@@ -37,5 +45,23 @@
                 </sheet>
             </form>
         </field>
+    </record>
+    <record id="society_event_search" model="ir.ui.view">
+        <field name="name">society.event.search</field>
+        <field name="model">society.event</field>
+        <field name="arch" type="xml">
+            <search string="society event">
+                <field name="subject"/>
+                <filter string="Active" name="active" domain="[('state','not in',['refuse','complete'])]"/>
+                <filter string="Successfull" name="success" domain="[('state','not in',['refuse'])]"/>
+                <filter string="Refused" name="refuse" domain="[('state','=','refuse')]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Room no" name="room_id" context="{'group_by':'room_id'}"/>
+                    <filter string="Date" name="event_date" context="{'group_by':'event_date'}"/>
+                </group>
+            </search>
+        </field> 
+
+
     </record>
 </odoo>

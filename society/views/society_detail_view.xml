@@ -39,19 +39,33 @@
                     <field name="location"/>
                     <field name="temple"/>
                     <field name="garden"/>
+                    <field name="garden_area" attrs="{'invisible':[('garden','=',False)]}"/>
                 </group>
                 </group>
                 </page>
                 <page string="Rules and regulation">
-                <!-- <tree> -->
-                <label for="rules" string="Rules"/>
-                <field name="rules"/>
-                <!-- </tree> -->
+                <field name="rule_ids">
+                <tree editable="bottom" decoration-warning="1">
+                <field name="name"/>
+                <!-- <label for="rules" string="Rules"/>
+                <field name="rules"/> -->
+                </tree>
+                </field>
                 </page>
             </notebook>
             </sheet>
             </form>
         </field>
-        </record>
-        
+    </record>
+    <record id="society_detail_search" model="ir.ui.view">
+        <field name="name">society.detail.search</field>
+        <field name="model">society.detail</field>
+        <field name="arch" type="xml">
+        <search>
+            <field name="name"/>
+            <field name="room_count" string="Rooms" filter_domain="[('room_count','>=',self)]"/>
+            <field name="location"/>
+        </search>
+        </field>
+    </record>
 </odoo>

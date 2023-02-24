@@ -9,12 +9,12 @@ class SocietyMaintenance(models.Model):
     room_id=fields.Many2one("society.resident",required=True)
     current_year = datetime.now().year
     current_month=datetime.now().month
-    date= fields.Date("Due Date",default=datetime.strptime('%s-%s-12' % (current_year,current_month),'%Y-%m-%d'))
+    date= fields.Date("Due Date",default=datetime.strptime('%s-%s-12' % (current_year,current_month),'%Y-%m-%d')    )
     # date=fields.Date()
     name=fields.Char(related="room_id.owner")
     amount=fields.Integer(default=1500,readonly=True)
     status=fields.Selection(string="Payment status",
-                            selection=[("pending","Pending"),("paid","Paid")],
+                            selection=[("pending","Pending"),("paid","Paid"),("due","Due")],
                             default="pending")
 
     # @api.depends("room_id.room_no")
@@ -25,4 +25,6 @@ class SocietyMaintenance(models.Model):
     def paid_action(self):
         for record in self:
             record.status="paid"
+    
+
             
