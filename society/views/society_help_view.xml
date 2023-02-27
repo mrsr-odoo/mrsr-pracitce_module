@@ -5,4 +5,22 @@
         <field name="res_model">society.help</field>
         <field name="view_mode">tree,form</field>
     </record>
+    <record id="society_help_form" model="ir.ui.view">
+        <field name="name">society.help.form</field>
+        <field name="model">society.help</field>
+        <field name="arch" type="xml">
+            <form string="Details">
+                <sheet>
+                <group>
+                <group>
+                    <field name="room_id"/>
+                    <field name="subject"/>
+                    <field name="staff_id"/>
+                    <field name="charges"/>
+                </group>
+                </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 </odoo>

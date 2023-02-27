@@ -26,4 +26,14 @@
         </form>
     </field>
     </record>
+    <record id="society_complaint_tree" model="ir.ui.view">
+        <field name="name">society.complaint.tree</field>
+        <field name="model">society.complaint</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="subject"/>
+                <field name="room_id" string="Room no"/>
+            </tree>
+        </field>
+    </record>
 </odoo>
