@@ -15,6 +15,7 @@
                                     decoration-muted="state=='complete'"
                                     decoration-danger="state=='refuse'"
                                     decoration-bf="state in ['approve','refuse']">
+                <field name="seq_pr"/>
                 <field name="subject"/>
                 <field name="organizer"/>
                 <field name="event_date"/>
@@ -22,6 +23,12 @@
         
             </tree>
         </field>
+    </record>
+     <record id="society_event_order" model="ir.sequence">
+        <field name="name">Events</field>
+        <field name="code">society.event</field>
+        <field name="prefix">E</field>
+        <field name="padding">3</field> 
     </record>
     <record id="society_event_form" model="ir.ui.view">
         <field name="name">society.event.form</field>

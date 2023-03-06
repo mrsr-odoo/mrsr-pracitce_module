@@ -7,3 +7,5 @@ society.access_society_complaint,access_society_complaint,society.model_society_
 society.access_society_help,access_society_help,society.model_society_help,base.group_user,1,1,1,1
 society.access_society_maintain,access_society_maintain,society.model_society_maintain,base.group_user,1,1,1,1
 society.access_society_rule,access_society_rule,society.model_society_rule,base.group_user,1,1,1,1
+society.access_soc_parent,access_soc_parent,society.model_soc_parent,base.group_user,1,1,1,1
+society.access_soc_child,access_soc_child,society.model_soc_child,base.group_user,1,1,1,1

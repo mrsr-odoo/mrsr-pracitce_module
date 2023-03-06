@@ -2,14 +2,11 @@
 <odoo>
     <menuitem id="society_root_menu" name="Society">
         <menuitem id="society_first_level_menu" name="Details">
-            <menuitem id="society_detail_menu" action="society_detail_action"/>
             <menuitem id="society_resident_menu" action="society_resident_action"/>
-
+            <menuitem id="society_detail_menu" action="society_detail_action"/>
             <menuitem id="society_staff_menu" action="society_staff_action"/>
         </menuitem>
         <menuitem id="society_second_level_menu" name="Setting">
-            <!-- <menuitem id="society_block_menu" action="society_block_action"/>
-            <menuitem id="society_resident_tag_menu" action="society_resident_tag_action"/> -->
             <menuitem id="society_maintain_menu" action="society_maintain_action"/>
         </menuitem>
         <menuitem id="society_third_level_menu" name="Events">
@@ -19,5 +16,9 @@
             <menuitem id="society_help_menu" action="society_help_action"/>
             <menuitem id="society_complaint_menu" action="society_complaint_action"/>
         </menuitem>
+        <!-- <menuitem id="society_fifth_level_menu" name="delegate">    
+            <menuitem id="society_parent_menu" action="society_parent_action"/> 
+            <menuitem id="society_child_menu" action="society_child_action"/> 
+        </menuitem> -->
     </menuitem>   
 </odoo> 

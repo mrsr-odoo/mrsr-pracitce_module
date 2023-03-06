@@ -3,7 +3,7 @@
  <record id="society_resident_action" model="ir.actions.act_window">
         <field name="name">Residents</field>
         <field name="res_model">society.resident</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
         <record id="society_resident_tree" model="ir.ui.view">
         <field name="name">society.resident.tree</field>
@@ -16,12 +16,38 @@
                 <field name="owner" string="Owner"/>
                 <field name="room_no"/>
                 <field name="society_id"/>
-                
                 <field name="block_no" string="Block"/>
                 <field name="state" invisible="1" />   
             </tree>
         </field>
     </record>
+       <record id="society_resident_kanban" model="ir.ui.view">
+        <field name="name">society.resident.kanban</field>
+        <field name="model">society.resident</field>
+        <field name="arch" type="xml">
+    <kanban default_group_by="block_no" records_draggable="False">
+                <field name="block_no"/>
+                <!-- <field name="kanbancolor"/> -->
+                <templates>
+                    <t t-name="kanban-box">
+                        <!-- <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.kanbancolor.raw_value)}"> -->
+                            <div class="oe_kanban_global_click">
+                                <h4>
+                            <field name="room_no" class="mb16"/>
+                                    -
+                            <field name="owner" class="mb16"/>
+                                </h4>
+                                <div>
+                            <field name="society_id"/>
+                                </div>
+                                
+                            </div>
+                        <!-- </div> -->
+                    </t>    
+                </templates>     
+            </kanban>
+            </field>
+            </record>
     <record id="society_resident_form" model="ir.ui.view">
         <field name="name">society.resident.form</field>
         <field name="model">society.resident</field>

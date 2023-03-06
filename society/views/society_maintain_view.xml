@@ -10,21 +10,29 @@
         <field name="model">society.maintain</field>
         <field name="arch" type="xml">
             <tree string="Channel">
+                <field name="seq"/>
                 <field name="room_id" string="Room no"/>
                 <field name="name"/>
                 <field name="date"/>
-                 <field name="status"/>
+                 <field name="state"/>
             </tree>
         </field>
     </record>
+    <record id="society_maintain_order" model="ir.sequence">
+        <field name="name">Maintenance</field>
+        <field name="code">society.maintain</field>
+        <field name="prefix">M</field>
+        <field name="padding">3</field> 
+    </record>
+    
     <record id="society_maintain_form" model="ir.ui.view">
         <field name="name">society.maintain.form</field>
         <field name="model">society.maintain</field>
         <field name="arch" type="xml">
             <form string="Details">
                 <header>
-                <button name="paid_action" type="object" string="Paid" class="oe_highlight"/>
-                    <field name="status" widget="statusbar" options="{'clickable':'1'}"/>
+                <button name="paid_action" type="object" string="Paid" class="oe_highlight" states="due,pending"/>
+                    <field name="state" widget="statusbar" options="{'clickable':'1'}"/>
                 </header>
                 <sheet>
                 <group>

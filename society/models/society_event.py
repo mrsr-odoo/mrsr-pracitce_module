@@ -44,3 +44,10 @@ class SocietyEvent(models.Model):
     def request_action(self):
         for rec in self:
             rec.state="request"
+
+
+    seq_pr=fields.Char(string="E Number",required=True,readonly=True,default=lambda self:('New') )
+    @api.model
+    def create(self,vals):
+        vals['seq_pr']=self.env['ir.sequence'].next_by_code('society.event')
+        return super(SocietyEvent,self).create(vals)

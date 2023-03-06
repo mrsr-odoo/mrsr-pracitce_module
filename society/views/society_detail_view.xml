@@ -22,6 +22,9 @@
         <field name="arch" type="xml">
             <form string="Details">
             <sheet>
+            <div class="oe_button_box" name="button_box">
+                <button type="action" class="oe_stat_button" icon="fa-bars" name="%(society_rule_action)d" string="Rules"/>
+                </div>
                 <label for="name" string="Society Name"/>
                 <div class="oe_title">
                     <h1 class="mb32">
@@ -47,8 +50,6 @@
                 <field name="rule_ids">
                 <tree editable="bottom" decoration-warning="1">
                 <field name="name"/>
-                <!-- <label for="rules" string="Rules"/>
-                <field name="rules"/> -->
                 </tree>
                 </field>
                 </page>
